@@ -1,0 +1,52 @@
+import React from 'react';
+import { Card, Row, Col, Typography } from 'antd';
+import { DollarCircleOutlined, ShoppingCartOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons';
+
+const { Title, Text } = Typography;
+
+const cardData = [
+  {
+    title: 'Card 1',
+    icon: <DollarCircleOutlined />,
+    description: 'This is the description for Card 1',
+  },
+  {
+    title: 'Card 2',
+    icon: <ShoppingCartOutlined />,
+    description: 'This is the description for Card 2',
+  },
+  {
+    title: 'Card 3',
+    icon: <ShoppingOutlined />,
+    description: 'This is the description for Card 3',
+  },
+  {
+    title: 'Card 4',
+    icon: <UserOutlined />,
+    description: 'This is the description for Card 4',
+  },
+];
+
+const App = () => {
+  return (
+    <div style={{ padding: '20px' }}>
+      <Row gutter={[16, 16]} justify="center">
+        {cardData.map((card, index) => (
+          <Col xs={24} sm={12} md={8} lg={6} xl={4} key={index}>
+            <Card hoverable style={{ margin: '10px', textAlign: 'center' }}>
+              <div style={{ marginBottom: '10px', backgroundColor: 'blue' }}>
+                <Title level={4} style={{ color: 'white' }}>
+                  {card.title}
+                </Title>
+              </div>
+              <div style={{ fontSize: '24px', marginBottom: '10px' }}>{card.icon}</div>
+              <Text>{card.description}</Text>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </div>
+  );
+};
+
+export default App;
